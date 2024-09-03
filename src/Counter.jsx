@@ -21,6 +21,14 @@ function Counter() {
   const handleNegate = () => {
     setValue(value * -1);
   };
+
+  const handleIncrementByTen = () => {
+    setValue(value + 10);
+  };
+
+  const handleDecrementByTen = () => {
+    setValue(value - 10);
+  };
   return (
     <div>
       <h1>Please Add or Subtract</h1>
@@ -35,6 +43,7 @@ function Counter() {
             }
             symbol="+"
           />
+          <Button action={() => handleIncrementByTen()} symbol={"+10"} />
           <div className="value-form">
             <input type="number" id="number" defaultValue="0" />
           </div>
@@ -43,6 +52,12 @@ function Counter() {
               handleDecrement(document.getElementById("number").value)
             }
             symbol="-"
+          />
+          <Button
+            action={() => {
+              handleDecrementByTen();
+            }}
+            symbol="-10"
           />
         </div>
       </div>
